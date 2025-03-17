@@ -17,6 +17,7 @@ packages = ["gendiff"]
 dev = [
     "pytest>=8.3.5",
     "pytest-cov>=6.0.0",
+    "pytest-subtests>=0.14.1",
     "ruff>=0.9.10",
 ]
 

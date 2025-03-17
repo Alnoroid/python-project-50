@@ -1,3 +1,4 @@
+import unittest
 from pathlib import Path
 from gendiff import generate_diff
 
@@ -8,9 +9,15 @@ def read_file(filename):
     return get_test_data_path(filename).read_text()
 
 def test_generate_diff():
-    file1 = get_test_data_path('file1.json')
-    file2 = get_test_data_path('file2.json')
-    expected_output = read_file('result_json')
+    test_cases = [
+        'json',
+        'yml'
+    ]
 
-    result = generate_diff(file1, file2)
-    assert result == expected_output
+    for extension in test_cases:
+        file1 = get_test_data_path(f"file1.{extension}")
+        file2 = get_test_data_path(f"file2.{extension}")
+        expected_output = read_file('result')
+
+        result = generate_diff(file1, file2)
+        assert result == expected_output, f"Test failed for {extension}"
