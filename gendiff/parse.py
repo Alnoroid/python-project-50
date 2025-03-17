@@ -47,8 +47,9 @@ def parse_files(file1, file2):
             diff[key] = {'status': 'removed', 'value': value1}
         elif value1 == value2:
             diff[key] = {'status': 'unchanged', 'value': value1}
+        elif isinstance(value1, dict) and isinstance(value2, dict):
+            diff[key] = {'status': 'nested', 'children': parse_files(value1, value2)}
         else:
             diff[key] = \
                 {'status': 'updated', 'old_value': value1, 'new_value': value2}
-
     return diff

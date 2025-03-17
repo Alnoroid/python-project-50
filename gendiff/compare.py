@@ -1,23 +1,7 @@
 from .parse import compare_files
+from .formatters.stylish import format_diff
 
-
-def generate_diff(file_path1, file_path2):
+def generate_diff(file_path1, file_path2, format_name):
     diff = compare_files(file_path1, file_path2)
-    return format_diff(diff)
-
-
-def format_diff(diff):
-    result = []
-    for key, data in diff.items():
-        status = data['status']
-
-        if status == 'added':
-            result.append(f"+ {key}: {data['value']}")
-        elif status == 'removed':
-            result.append(f"- {key}: {data['value']}")
-        elif status == 'updated':
-            result.append(f"- {key}: {data['old_value']}")
-            result.append(f"+ {key}: {data['new_value']}")
-        elif status == 'unchanged':
-            result.append(f"  {key}: {data['value']}")
-    return '{\n  ' + '\n  '.join(result) + '\n}'
+    if format_name == 'stylish':
+        return '{\n' + format_diff(diff) + '\n}'
