@@ -10,3 +10,7 @@
 ### Demo YML
 
 [![asciicast](https://asciinema.org/a/H2SlM8lEmDgI8nxF3q7cqhOPh.svg)](https://asciinema.org/a/H2SlM8lEmDgI8nxF3q7cqhOPh)
+
+### Demo complex json and YML
+
+[![asciicast](https://asciinema.org/a/F3XMR2aO3OUl4r053brF7gMcx.svg)](https://asciinema.org/a/F3XMR2aO3OUl4r053brF7gMcx)
