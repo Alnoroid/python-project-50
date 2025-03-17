@@ -13,6 +13,8 @@ package-install:
 package-reinstall:
 	uv tool install --reinstall dist/*.whl
 
+rebuild: build package-reinstall
+
 lint:
 	uv run ruff check gendiff
 
