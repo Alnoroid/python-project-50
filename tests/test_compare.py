@@ -1,4 +1,3 @@
-import unittest
 from pathlib import Path
 from gendiff import generate_diff
 
@@ -21,3 +20,9 @@ def test_generate_diff():
 
         result = generate_diff(file1, file2)
         assert result == expected_output, f"Test failed for {extension}"
+
+
+
+
+# проверка на разные расширения файлов
+# проверка yml и yaml
