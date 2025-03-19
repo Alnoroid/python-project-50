@@ -16,21 +16,10 @@ def read_file(file_path):
 
 
 def compare_files(file_path1, file_path2):
-    check_extension(file_path1, file_path2)
-
     file1 = read_file(os.path.abspath(file_path1))
     file2 = read_file(os.path.abspath(file_path2))
     diff = parse_files(file1, file2)
     return diff
-
-
-def check_extension(file_path1, file_path2):
-    extension1 = os.path.splitext(file_path1)[1]
-    extension2 = os.path.splitext(file_path2)[1]
-    if extension1 != extension2:
-        raise ValueError(
-            f"Extension mismatch {extension1} != {extension2}"
-        )
 
 
 def parse_files(file1, file2):

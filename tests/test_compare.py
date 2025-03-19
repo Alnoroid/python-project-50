@@ -34,3 +34,17 @@ def test_generate_diff_plain():
 
         result = generate_diff(file1, file2, 'plain')
         assert result == expected_output, f"Test failed for {extension}"
+
+def test_generate_diff_json():
+    test_cases = [
+        'json',
+        'yml'
+    ]
+
+    for extension in test_cases:
+        file1 = get_test_data_path(f"file1.{extension}")
+        file2 = get_test_data_path(f"file2.{extension}")
+        expected_output = read_file('result_json')
+
+        result = generate_diff(file1, file2, 'json')
+        assert result == expected_output, f"Test failed for {extension}"
