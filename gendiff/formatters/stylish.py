@@ -1,4 +1,4 @@
-def format_diff(diff, indent=2):
+def format_stylish(diff, indent=2):
     result = []
     for key, data in diff.items():
         status = data['status']
@@ -19,7 +19,7 @@ def format_diff(diff, indent=2):
                               f"{format_value(data['new_value'], indent + 4)}")
             case 'nested':
                 result.append(f"{' ' * indent}  {key}: " + '{')
-                result.append(format_diff(data['children'], indent + 4))
+                result.append(format_stylish(data['children'], indent + 4))
                 result.append(f"{' ' * indent}" + '  }')
     return '\n'.join(result)
 
