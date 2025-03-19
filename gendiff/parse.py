@@ -42,14 +42,27 @@ def parse_files(file1, file2):
         value2 = file2.get(key)
 
         if key not in file1:
-            diff[key] = {'status': 'added', 'value': value2}
+            diff[key] = {'status': 'added', 'value': format_value(value2)}
         elif key not in file2:
-            diff[key] = {'status': 'removed', 'value': value1}
+            diff[key] = {'status': 'removed', 'value': format_value(value1)}
         elif value1 == value2:
-            diff[key] = {'status': 'unchanged', 'value': value1}
+            diff[key] = {'status': 'unchanged', 'value': format_value(value1)}
         elif isinstance(value1, dict) and isinstance(value2, dict):
-            diff[key] = {'status': 'nested', 'children': parse_files(value1, value2)}
+            diff[key] = {'status': 'nested',
+                         'children': parse_files(value1, value2)}
         else:
             diff[key] = \
-                {'status': 'updated', 'old_value': value1, 'new_value': value2}
+                {'status': 'updated',
+                 'old_value': format_value(value1),
+                 'new_value': format_value(value2)}
     return diff
+
+
+def format_value(value):
+
+    if isinstance(value, bool):
+        return 'true' if value else 'false'
+    elif value is None:
+        return 'null'
+    else:
+        return value

@@ -19,4 +19,7 @@ def test_generate_diff():
         expected_output = read_file('result')
 
         result = generate_diff(file1, file2)
+        print(result)
+        print('---')
+        print(expected_output)
         assert result == expected_output, f"Test failed for {extension}"
