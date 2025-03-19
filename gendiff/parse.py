@@ -59,10 +59,8 @@ def parse_files(file1, file2):
 
 
 def format_value(value):
-
     if isinstance(value, bool):
         return 'true' if value else 'false'
     elif value is None:
         return 'null'
-    else:
-        return value
+    return value
