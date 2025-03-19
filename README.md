@@ -14,3 +14,7 @@
 ### Demo complex json and YML
 
 [![asciicast](https://asciinema.org/a/F3XMR2aO3OUl4r053brF7gMcx.svg)](https://asciinema.org/a/F3XMR2aO3OUl4r053brF7gMcx)
+
+### Demo using plain format
+
+[![asciicast](https://asciinema.org/a/69wEMqLSJy0EK1HNVL2kCDIbJ.svg)](https://asciinema.org/a/69wEMqLSJy0EK1HNVL2kCDIbJ)
